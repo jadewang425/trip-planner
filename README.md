@@ -1,8 +1,8 @@
-#Trip Planner
+# Trip Planner
 
 A trip planning application to stay organize and ensuring all the preparations are completed for each trip.
 
-###User Stories
+### User Stories
 AAU,
 - I want to view all my trips on the Homepage
 - I want to have an "add trip" page, and be able to enter
@@ -19,6 +19,7 @@ AAU,
 Bonue:
 - Assign tasks to members in trip details
 - Sort trips by start date on the homepage
+- users can like comments if it's a good idea
 
 Steps:
 - Create model(s)
@@ -27,19 +28,19 @@ Steps:
 - When above are completed
     - Implement OAuth
 
-######HTML
+###### HTML
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Merriweather:wght@300&display=swap" rel="stylesheet">
 ```
-######CSS
+###### CSS
 ```css
 font-family: 'Dancing Script', cursive;
 font-family: 'Merriweather', serif;
 ```
 
-####Technologies Used:
+#### Technologies Used:
 - Express.js
 - Mongoose
 - MongoDB
@@ -47,12 +48,12 @@ font-family: 'Merriweather', serif;
 - JavaScript
 - CSS
 
-##Wireframe
-#####Homepage / All Trips
+## Wireframe
+##### Homepage / All Trips
 ![layout wireframe](https://i.imgur.com/yJYKRMQ.png)
-#####Add Trip page
-![layout wireframe](https://i.imgur.com/TEs8wzZ.png)
-#####Trip Details
+##### Add Trip page
+![layout wireframe](https://i.imgur.com/yEA5tki.png)
+##### Trip Details
 ![layout wireframe](https://i.imgur.com/yANO9s9.png)
-#####ERD
-![layout wireframe](https://i.imgur.com/0lEvlmt.png)
+##### ERD
+![layout wireframe](https://i.imgur.com/wm7kIbf.png)
