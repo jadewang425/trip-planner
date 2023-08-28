@@ -1,6 +1,6 @@
 #Trip Planner
 
-A trip planning application
+A trip planning application to stay organize and ensuring all the preparations are completed for each trip.
 
 ###User Stories
 AAU,
