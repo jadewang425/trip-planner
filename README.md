@@ -55,4 +55,4 @@ font-family: 'Merriweather', serif;
 #####Trip Details
 ![layout wireframe](https://i.imgur.com/yANO9s9.png)
 #####ERD
-![layout wireframe](https://i.imgur.com/BAH6jyt.png)
+![layout wireframe](https://i.imgur.com/0lEvlmt.png)
