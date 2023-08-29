@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+<section>
+    <div><%= trip.tripDates.join(" - ") %></div>
+    <div><%= trip.tripDesc %></div>
+    <div><%= trip.owner %></div>
+    <div><strong>Participants:</strong></div>
+    <div><%= trip.members %></div>
+    <div><strong>Tasks:</strong></div>
+    <div><%= trip.tasks %></div>
+
+    <!-- add comments form  -->
+    <% if (trip.comments.length) { %>
+        <h5>Comments</h5>
+        <div><% trip.comments.forEach(comment => { %>
+            <div>Name</div>
+            <div>Date Created</div>
+            <div><%= comment %>></div>
+        <% }) %></div>
+    <% } else { %>
+        <h5>No Comments Yet</h5>
+    <% }%>
+</section>
+
+<%- include('../partials/footer') %>

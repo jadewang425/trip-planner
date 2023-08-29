@@ -1,13 +1,13 @@
 * {
     box-sizing: border-box;
     font-family: 'Merriweather', serif;
-    color: #424748;
+    /* color: #424748; */
+    text-align: center;
 }
   
 body {
     margin: 0;
     height: 100vh;
-    padding: 10px;
     display: grid;
     grid-template-rows: 1fr 3fr 50px;
     grid-template-areas: 
@@ -25,6 +25,7 @@ body > nav {
 }
 
 nav > a {
+    font-size: 3vmin;
     color: black;
     margin: 20px;
     text-decoration: none;
@@ -33,17 +34,16 @@ nav > a {
 }
 
 nav > a:hover:not(.active) {
-    color: white;
-    background-color: rgb(96, 115, 61);
+    background-color: rgb(115, 61, 61);
 }
 
 nav > a.active {
-    color: white;
     background-color: rgb(96, 115, 61);
     cursor: default;
 }
 
 header {
+    width: 100%;
     align-items: center;
     justify-self: center;
 }
@@ -63,16 +63,20 @@ header > img {
 } */
 
 h1 {
+    font-size: 7vmin;
     font-family: 'Dancing Script', cursive;
-    text-align: center;
     margin-top: 20px;
 }
 
 footer {
-    text-align: center;
+    font-size: 2vmin;
 }
 
 article {
-    text-align: center;
     margin: 50px;
+}
+
+.navbar {
+    color: white;
+    background-color: rgb(96, 115, 61);
 }

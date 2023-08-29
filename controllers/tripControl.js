@@ -50,9 +50,9 @@ router.get('/:id/edit', (req, res) => {
 router.get('/:id', (req, res) => {
     Trip.findById(req.params.id)
         .then(trip => {
-            console.log('found this trip', trip)
-            
-            res.json(trip)
+            // console.log('found this trip', trip)
+            // res.json(trip)
+            res.render('trips/show', { title: trip.tripName, trip})
         })
         .catch(err => {
             console.log('===err===')

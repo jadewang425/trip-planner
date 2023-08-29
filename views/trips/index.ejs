@@ -5,6 +5,7 @@
             <h4><%= trip.tripName %></h4>
             <div><%= trip.tripDates.join(" - ") %></div>
             <div><%= trip.tripDesc %></div>
+            <a href="/trips/<%= trip.id %>">See Details</a>
         </article>
     <% })%>
 
