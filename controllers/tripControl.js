@@ -11,9 +11,9 @@ const router = express.Router()
 router.get('/', (req, res) => {
     Trip.find({})
         .then(trips => {
-            console.log('found the trips', trips)
-            
-            res.json(trips)
+            // console.log('found the trips', trips)
+            // res.json(trips)
+            res.render('trips/index', { title: 'My Trips', trips})
         })
         .catch(err => {
             console.log('===err===')
