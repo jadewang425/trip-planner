@@ -1,4 +1,11 @@
 <%- include('../partials/header') %>
-
+    
+    <% trips.forEach(trip => { %>
+        <article>
+            <h4><%= trip.tripName %></h4>
+            <div><%= trip.tripDates.join(" - ") %></div>
+            <div><%= trip.tripDesc %></div>
+        </article>
+    <% })%>
 
 <%- include('../partials/footer') %>

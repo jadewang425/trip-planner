@@ -14,13 +14,14 @@
 <body>
     <header>
         <img src="/assets/tp-logo.png">
-    </header>
         <nav>
             <a href="/trips"	<%- title === 'My Trips' ? 'class="active"' : '' %>>
-            My Trips</a>
-            <a href="/trips/new" <%- title === 'Add Trip' ? 'class="active"' : '' %>>Add Trip</a>
-            <a href="/auth/google" class="login">LOG IN&nbsp;</a>
-            <!-- add google image back later -->
-            <!-- <img src="https://i.imgur.com/FHjYyi0.png"> -->
+                My Trips</a>
+                <a href="/trips/new" <%- title === 'Add Trip' ? 'class="active"' : '' %>>Add Trip</a>
+                <a href="/auth/google" class="login">LOG IN&nbsp;</a>
+                <!-- add google image back later -->
+                <!-- <img src="https://i.imgur.com/FHjYyi0.png"> -->
         </nav>
-    <h1><%= title %></h1>
+        <h1><%= title %></h1>
+    </header>
+    <main>

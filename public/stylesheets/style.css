@@ -9,11 +9,11 @@ body {
     height: 100vh;
     padding: 10px;
     display: grid;
-    grid-template-rows: 100px 50px 1fr;
+    grid-template-rows: 1fr 3fr 50px;
     grid-template-areas: 
         "header"
-        "nav"
         "main"
+        "footer"
 }
   
 body > nav {
@@ -44,14 +44,15 @@ nav > a.active {
 }
 
 header {
-    align-self: center;
+    align-items: center;
     justify-self: center;
 }
 
 header > img {
-    height: 80px;
+    height: 15vmin;
+    display: block;
     object-fit: contain;
-    margin-right: auto;
+    margin: 10px auto;
 }
 
 /* .login {
@@ -64,8 +65,14 @@ header > img {
 h1 {
     font-family: 'Dancing Script', cursive;
     text-align: center;
+    margin-top: 20px;
 }
 
 footer {
     text-align: center;
+}
+
+article {
+    text-align: center;
+    margin: 50px;
 }
