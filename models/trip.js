@@ -35,7 +35,7 @@ const tripSchema = new Schema({
     timestamps: true
 })
 
-const Trip = model('Fruit', fruitSchema)
+const Trip = model('Trip', tripSchema)
 
 // export
 module.exports = Trip
