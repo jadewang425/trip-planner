@@ -13,8 +13,12 @@ const tripSchema = new Schema({
         required: true
     },
     // need to check to update with both start and end date
-    tripDates: {
-        type: [String],
+    tripStartDate: {
+        type: Date,
+        required: true
+    },
+    tripEndDate: {
+        type: Date,
         required: true
     },
     tripDesc: {

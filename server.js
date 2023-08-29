@@ -19,7 +19,7 @@ middleware(app);
 
 // register routes
 app.get('/', (req, res) => {
-    res.send('Trip Planner Homepage');
+    res.redirect('/trips');
 })
 app.use('/', AuthRouter);
 app.use('/trips', TripRouter);

@@ -16,7 +16,7 @@ body {
         "footer"
 }
   
-body > nav {
+/* body > nav {
     grid-area: nav;
     display: flex;
     justify-content: center;
@@ -31,16 +31,7 @@ nav > a {
     text-decoration: none;
     padding: 10px;
     border-radius: 5px;
-}
-
-nav > a:hover:not(.active) {
-    background-color: rgb(115, 61, 61);
-}
-
-nav > a.active {
-    background-color: rgb(96, 115, 61);
-    cursor: default;
-}
+} */
 
 header {
     width: 100%;
@@ -65,7 +56,7 @@ header > img {
 h1 {
     font-size: 7vmin;
     font-family: 'Dancing Script', cursive;
-    margin-top: 20px;
+    margin: 30px 0;
 }
 
 footer {
@@ -79,4 +70,14 @@ article {
 .navbar {
     color: white;
     background-color: rgb(96, 115, 61);
+}
+
+a > img {
+    height: 3vh;
+}
+
+#new-trip-form {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, minmax(auto, 22rem));
 }

@@ -13,7 +13,7 @@ router.get('/auth/google', passport.authenticate(
 // google oath callback route
 router.get('/oauth2callback', passport.authenticate(
     'google',
-    {successRedirect: '/', failureRedirect: '/'}
+    {successRedirect: '/trips', failureRedirect: '/'}
 ));
 
 // google oauth logout route

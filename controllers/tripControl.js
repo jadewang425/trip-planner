@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
 })
 // new
 router.get('/new', (req, res) => {
-    res.send('the new page')
+    res.render('trips/new', { title: 'Create A New Trip' })
 })
 // create
 // edit

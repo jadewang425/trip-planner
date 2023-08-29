@@ -7,8 +7,8 @@ const db = mongoose.connection
 // 2. one-time connection
 db.on('open', () => {
     const startTrips = [
-        {tripName: 'Barcelona & Madrid', tripDates: ['2023/10/21', '2023/10/29'], tripDesc: "MM's wedding"},
-        {tripName: 'New Year 2024', tripDates: ['2023/12/23', '2024/01/05'], tripDesc: 'New Year Eve in TW!'}
+        {tripName: 'Barcelona & Madrid', tripStartDate: '2023/10/21', tripEndDate: '2023/10/29', tripDesc: "MM's wedding"},
+        {tripName: 'New Year 2024', tripStartDate: '2023/12/23', tripEndDate: '2024/01/05', tripDesc: 'New Year Eve in TW!'}
     ]
     Trip.deleteMany({ owner: null })
         .then(() => {

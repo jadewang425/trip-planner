@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<form id="new-trip-form" action="/trips" method="POST">
+    <!-- <fieldset> -->
+        <label>Trip Name:</label>
+        <input type="text" name="tripName" required>
+        <label>Trip Start Date:</label>
+        <input type="date" name="tripStartDate" required>
+        <label>Trip End Date:</label>
+        <input type="date" name="tripEndDate" required>
+        <label>Trip Description:</label>
+        <input type="text" name="tripDesc" required>
+        <input type="submit" value="Start Planning">
+    <!-- </fieldset> -->
+</form>
+
+<%- include('../partials/footer') %>

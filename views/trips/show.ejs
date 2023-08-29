@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 <section>
-    <div><%= trip.tripDates.join(" - ") %></div>
+    <div><%= trip.tripStartDate.toLocaleDateString() %> - <%= trip.tripEndDate.toLocaleDateString() %></div>
     <div><%= trip.tripDesc %></div>
     <div><%= trip.owner %></div>
     <div><strong>Participants:</strong></div>
