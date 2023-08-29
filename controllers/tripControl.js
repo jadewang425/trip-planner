@@ -28,6 +28,19 @@ router.get('/new', (req, res) => {
     res.render('trips/new', { title: 'Create A New Trip' })
 })
 // create
+router.post('/', (req, res) => {
+    // assign owner
+    console.log(req.body.owner, req.user.id)
+    req.body.owner = req.user.id
+    Trip.create(req.body)
+        .then(trip => {
+            res.redirect(`trips/${trip.id}`)
+        })
+        .catch(err => {
+            console.log(err)
+            res.redirect('/trips/new')
+        })
+})
 // edit
 router.get('/:id/edit', (req, res) => {
     Trip.findById(req.params.id)
