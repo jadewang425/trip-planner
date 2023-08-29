@@ -1,6 +1,7 @@
 // import dependencies
 const express = require('express');
 require('dotenv').config()
+const checkLogin = require('../utils/ensureLoggedIn')
 
 const Trip = require('../models/trip')
 
@@ -24,11 +25,11 @@ router.get('/', (req, res) => {
         })
 })
 // new
-router.get('/new', (req, res) => {
+router.get('/new', checkLogin, (req, res) => {
     res.render('trips/new', { title: 'Create A New Trip' })
 })
 // create
-router.post('/', (req, res) => {
+router.post('/', checkLogin, (req, res) => {
     // assign owner
     console.log(req.body.owner, req.user.id)
     req.body.owner = req.user.id
@@ -42,7 +43,7 @@ router.post('/', (req, res) => {
         })
 })
 // edit
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', checkLogin, (req, res) => {
     Trip.findById(req.params.id)
         .then(trip => {
             console.log('found this trip', trip)
