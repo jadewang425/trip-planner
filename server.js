@@ -7,6 +7,8 @@ const middleware = require('./utils/middleware');
 // routers/controllers
 const AuthRouter = require('./controllers/authControl');
 const TripRouter = require('./controllers/tripControl');
+const CommentRouter = require('./controllers/commentControl');
+const TaskRouter = require('./controllers/taskControl');
 
 const app = express();
 
@@ -23,6 +25,8 @@ app.get('/', (req, res) => {
 })
 app.use('/', AuthRouter);
 app.use('/trips', TripRouter);
+app.use('/comments', CommentRouter);
+app.use('/tasks', TaskRouter);
 
 
 // server listener

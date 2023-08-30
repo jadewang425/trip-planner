@@ -16,13 +16,7 @@ router.get('/', (req, res) => {
             // res.json(trips)
             res.render('trips/index', { title: 'My Trips', trips})
         })
-        .catch(err => {
-            console.log('===err===')
-            console.log(err)
-            console.log('===err===')
-            // only in production for developer for now
-            return res.send('err - tripControl, index - checl terminal')
-        })
+        .catch(err => console.log.error)
 })
 // new
 router.get('/new', checkLogin, (req, res) => {
@@ -31,8 +25,9 @@ router.get('/new', checkLogin, (req, res) => {
 // create
 router.post('/', checkLogin, (req, res) => {
     // assign owner
-    console.log(req.body.owner, req.user.id)
+    
     req.body.owner = req.user.id
+    console.log(req.body.owner, req.user.id)
     Trip.create(req.body)
         .then(trip => {
             res.redirect(`trips/${trip.id}`)
@@ -51,13 +46,7 @@ router.get('/:id/edit', checkLogin, (req, res) => {
             // trip.tripEndDate.format("YYYY-MM-DD")
             res.render('trips/edit', {trip, title: `Edit Trip: ${trip.tripName}`})
         })
-        .catch(err => {
-            console.log('===err===')
-            console.log(err)
-            console.log('===err===')
-            // only in production for developer for now
-            return res.send('err - tripControl, edit - checl terminal')
-        })
+        .catch(err => console.log.error)
 })
 // update
 router.patch('/:id', checkLogin, (req, res) => {
@@ -73,13 +62,7 @@ router.patch('/:id', checkLogin, (req, res) => {
             console.log('what is updated', data)
             res.redirect(`/trips`)
         })
-        .catch(err => {
-            console.log('===err===')
-            console.log(err)
-            console.log('===err===')
-            // only in production for developer for now
-            return res.send('err - tripControl, edit - checl terminal')
-        })
+        .catch(err => console.log.error)
 })
 // delete
 router.delete('/:id', checkLogin, (req, res) => {
@@ -92,26 +75,21 @@ router.delete('/:id', checkLogin, (req, res) => {
             }
         })
         .then(data => {
-            console.log('returned from deleteOne', data)
+            // console.log('returned from deleteOne', data)
             res.redirect('/trips')
         })
-        .catch()
+        .catch(err => console.log.error)
 })
 // show
 router.get('/:id', (req, res) => {
     Trip.findById(req.params.id)
+        .populate('owner')
+        // .populate('author')
         .then(trip => {
-            // console.log('found this trip', trip)
-            // res.json(trip)
+            console.log('found this trip', trip.comments)
             res.render('trips/show', { title: trip.tripName, trip})
         })
-        .catch(err => {
-            console.log('===err===')
-            console.log(err)
-            console.log('===err===')
-            // only in production for developer for now
-            return res.send('err - tripControl, show - checl terminal')
-        })
+        .catch(err => console.log.error)
 })
 
 // export

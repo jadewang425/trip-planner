@@ -9,15 +9,11 @@ const router = express.Router()
 // routes
 // create
 router.post('/:tripId', checkLogin, (req, res) => {
-    req.body.auther = req.user.idade
-    console.log('req.body', req.body)
-    // res.send('post a comment')
-    // find trip
     Trip.findById(req.params.tripId)
-        // push the comment into the trip comments array
+        // push the task into the trip tasks array
         // save the trip
         .then(trip => {
-            trip.comments.push(req.body)
+            trip.tasks.push(req.body)
             return trip.save()
         })
         // redirect
@@ -29,15 +25,15 @@ router.post('/:tripId', checkLogin, (req, res) => {
 })
 // edit
 router.get('/:id/edit', checkLogin, (req, res) => {
-    res.send('comment edit form')
+    res.send('task edit form')
 })
 // update
 router.patch('/:id', checkLogin, (req, res) => {
-    res.send('edit comment route')
+    res.send('edit task route')
 })
 // delete
 router.delete('/:id', checkLogin, (req, res) => {
-    res.send('delete comment route')
+    res.send('delete task route')
 })
 
 // export

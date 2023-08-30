@@ -3,6 +3,7 @@ const mongoose = require('../utils/connection')
 
 // import commentSchema, to be used as subdoc
 const commentSchema = require('./comment')
+const taskSchema = require('./task')
 
 const { Schema, model } = mongoose
 
@@ -33,7 +34,7 @@ const tripSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     }],
-    tasks: [String],
+    tasks: [taskSchema],
     comments: [commentSchema]
 }, {
     timestamps: true
