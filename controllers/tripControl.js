@@ -47,8 +47,9 @@ router.get('/:id/edit', checkLogin, (req, res) => {
     Trip.findById(req.params.id)
         .then(trip => {
             console.log('found this trip', trip)
-            
-            res.send(`Edit page for ${trip.tripName}`)
+            // trip.tripStartDate.format("YYYY-MM-DD")
+            // trip.tripEndDate.format("YYYY-MM-DD")
+            res.render('trips/edit', {trip, title: `Edit Trip: ${trip.tripName}`})
         })
         .catch(err => {
             console.log('===err===')
@@ -59,7 +60,43 @@ router.get('/:id/edit', checkLogin, (req, res) => {
         })
 })
 // update
+router.patch('/:id', checkLogin, (req, res) => {
+    Trip.findById(req.params.id)
+        .then(trip => {
+            if(trip.owner == req.user.id) {
+                return trip.updateOne(req.body)
+            } else {
+                res.send('something went wrong')
+            }
+        })
+        .then(data => {
+            console.log('what is updated', data)
+            res.redirect(`/trips`)
+        })
+        .catch(err => {
+            console.log('===err===')
+            console.log(err)
+            console.log('===err===')
+            // only in production for developer for now
+            return res.send('err - tripControl, edit - checl terminal')
+        })
+})
 // delete
+router.delete('/:id', checkLogin, (req, res) => {
+    Trip.findById(req.params.id)
+        .then(trip => {
+            if(trip.owner == req.user.id) {
+                return trip.deleteOne()
+            } else {
+                res.send('something went wrong')
+            }
+        })
+        .then(data => {
+            console.log('returned from deleteOne', data)
+            res.redirect('/trips')
+        })
+        .catch()
+})
 // show
 router.get('/:id', (req, res) => {
     Trip.findById(req.params.id)

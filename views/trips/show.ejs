@@ -2,6 +2,7 @@
 <section>
     <div><%= trip.tripStartDate.toLocaleDateString() %> - <%= trip.tripEndDate.toLocaleDateString() %></div>
     <div><%= trip.tripDesc %></div>
+    <div><strong>Created by: </strong></div>
     <div><%= trip.owner %></div>
     <div><strong>Participants:</strong></div>
     <div><%= trip.members %></div>
@@ -9,11 +10,24 @@
     <div><%= trip.tasks %></div>
 
     <% if (trip.owner?._id.equals(user?._id)) { %>
-        <a href="/trips/<%= trip._id %>/edit">
+        <a href="/trips/<%= trip._id %>/edit" class="btn btn-info m-3">
             Edit Trip
         </a>
+        <form action="/trips/<%= trip._id %>?_method=DELETE" method="POST">
+            <input type="submit" class="btn btn-danger" value="Delete"></input>
+        </form>
     <% } %>
     <!-- add comments form  -->
+    <% if (user) { %>
+        <form action="/<%= trip._id%>/comments" method="POST" class="col-md-6 offset-md-3">
+            <fieldset>
+                <h5>Add Comment</h5>
+                <label class="form-label">Comment: </label>
+                <input type="text" name="comment">
+                <input type="submit" class="btn btn-info" value="Add Comment">
+            </fieldset>
+        </form>
+    <% }%>
 
     <% if (trip.comments.length) { %>
         <h5>Comments</h5>
@@ -23,7 +37,7 @@
             <div><%= comment %>></div>
         <% }) %></div>
     <% } else { %>
-        <h5>No Comments Yet</h5>
+        <h6>No Comments Yet</h6>
     <% }%>
 </section>
 

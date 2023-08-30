@@ -1,4 +1,17 @@
 <%- include('../partials/header') %>
 
+<form id="new-trip-form" action="/trips/<%= trip._id %>?_method=PATCH" method="POST">
+    <!-- <fieldset> -->
+        <label>Trip Name:</label>
+        <input type="text" name="tripName" required value="<%= trip.tripName %>">
+        <label>Trip Start Date:</label>
+        <input type="date" name="tripStartDate" required value="<%= trip.tripStartDate %>">
+        <label>Trip End Date:</label>
+        <input type="date" name="tripEndDate" required value="<%= trip.tripEndDate %>">
+        <label>Trip Description:</label>
+        <input type="text" name="tripDesc" id="trip-desc-box" required value="<%= trip.tripDesc %>">
+        <input type="submit" value="Edit Trip">
+    <!-- </fieldset> -->
+</form>
 
 <%- include('../partials/footer') %>
