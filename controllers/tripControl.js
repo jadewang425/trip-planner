@@ -68,7 +68,7 @@ router.patch('/:id', checkLogin, (req, res) => {
 router.delete('/:id', checkLogin, (req, res) => {
     Trip.findById(req.params.id)
         .then(trip => {
-            if(trip.owner == req.user.id) {
+            if(req.user.id == trip.owner) {
                 return trip.deleteOne()
             } else {
                 res.send('something went wrong')

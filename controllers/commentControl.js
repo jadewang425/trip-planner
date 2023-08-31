@@ -36,8 +36,24 @@ router.patch('/:id', checkLogin, (req, res) => {
     res.send('edit comment route')
 })
 // delete
-router.delete('/:id', checkLogin, (req, res) => {
-    res.send('delete comment route')
+router.delete('/:tripId/:commentId', checkLogin, (req, res) => {
+    // res.send('delete comment route')
+    const tId = req.params.tripId
+    const cId = req.params.commentId
+    Trip.findById(tId)
+        .then(trip => {
+            const theComment = trip.comments.id(cId)
+            if(req.user.id == theComment.author) {
+                theComment.deleteOne()
+                return trip.save()
+            } else {
+                res.send('something went wrong')
+            }
+        })
+        .then(trip => {
+            res.redirect(`/trips/${trip._id}`)
+        })
+        .catch(error => console.error)
 })
 
 // export
