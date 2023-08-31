@@ -5,7 +5,7 @@
         <label>Trip Name:</label>
         <input type="text" name="tripName" required value="<%= trip.tripName %>">
         <label>Trip Start Date:</label>
-        <input type="date" name="tripStartDate" required value="<%= trip.tripStartDate %>">
+        <input type="text" name="tripStartDate" required value="<%= trip.tripStartDate.toLocaleDateString() %>">
         <label>Trip End Date:</label>
         <input type="date" name="tripEndDate" required value="<%= trip.tripEndDate %>">
         <label>Trip Description:</label>

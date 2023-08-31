@@ -2,8 +2,10 @@
 <section class="show-trip-details">
     <div><%= trip.tripStartDate.toLocaleDateString() %> - <%= trip.tripEndDate.toLocaleDateString() %></div>
     <div><%= trip.tripDesc %></div>
-    <div><strong>Created by: </strong></div>
-    <div><%= trip.owner.name %></div>
+    <% if(trip.owner) {%>
+        <div><strong>Created by: </strong></div>
+        <div><%= trip.owner.name %></div>
+    <% } %>
     <div><strong>Participants:</strong></div>
     <div><%= trip.members %></div>
     <div><strong>Tasks:</strong></div>
@@ -47,15 +49,20 @@
 <% }%>
 <!-- comments section -->
 <h5>Comments</h5>
-<section class="container-sm m-4">
+<section>
     <% if (trip.comments.length) { %>
-        <div class="card mb-4 shadow"><% trip.comments.forEach(comment => { %>
-            <div><img src="" alt=""></div>
-            <div><strong><%= comment.author %></strong></div>
-            <div><%= comment.comment %> - 
-            <small><%= comment.createdAt.toLocaleDateString() %></small></div>
-        <% }) %>
-        </div>
+        <table class="table">
+            <tbody >
+                <% trip.comments.forEach(comment => { %>
+                <tr class="card shadow comments-layout">
+                    <td class="col"><img src="<%= comment.author.avatar %>"></td>
+                    <td class="col"><strong><%= comment.author.name %></strong></td>
+                    <td class="col"><%= comment.comment %> - 
+                    <small><%= comment.createdAt.toLocaleDateString() %></small></td>
+                <% }) %>
+                </tr>
+            </tbody>
+        </table>
     <% } else { %>
         <h6>No Comments Yet</h6>
     <% } %>

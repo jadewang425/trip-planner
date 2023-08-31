@@ -9,7 +9,7 @@ const router = express.Router()
 // routes
 // create
 router.post('/:tripId', checkLogin, (req, res) => {
-    req.body.auther = req.user.idade
+    req.body.author = req.user._id
     console.log('req.body', req.body)
     // res.send('post a comment')
     // find trip

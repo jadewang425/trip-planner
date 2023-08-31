@@ -94,6 +94,17 @@ a > img {
     margin: 20px 0;
   }
 
-  #trip-desc-box {
-    height: 15vh;
-  }
+#trip-desc-box {
+height: 15vh;
+}
+
+.comments-layout {
+display: block;
+padding: 5px;
+margin: 10px 20px;
+}
+
+td > img {
+border-radius: 50%;
+height: 50px;
+}
