@@ -43,3 +43,10 @@ Trip.find({})
 //     .then(data => console.log('response after clearing comments', data))
 //     .catch(error => console.log(error))
 // // // // // // // // // // // // // // // // // // //
+
+// // // // // // // // // // // // // // // // // // //
+// The code below will update the entire tasks array to an empty array
+// Trip.updateMany({}, { tasks: [] })
+//     .then(data => console.log('response after clearing comments', data))
+//     .catch(error => console.log(error))
+// // // // // // // // // // // // // // // // // // //

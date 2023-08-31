@@ -25,9 +25,8 @@ router.get('/new', checkLogin, (req, res) => {
 // create
 router.post('/', checkLogin, (req, res) => {
     // assign owner
-    
     req.body.owner = req.user.id
-    console.log(req.body.owner, req.user.id)
+    // console.log(req.body.owner, req.user.id)
     Trip.create(req.body)
         .then(trip => {
             res.redirect(`trips/${trip.id}`)
@@ -41,9 +40,7 @@ router.post('/', checkLogin, (req, res) => {
 router.get('/:id/edit', checkLogin, (req, res) => {
     Trip.findById(req.params.id)
         .then(trip => {
-            console.log('found this trip', trip)
-            // trip.tripStartDate.format("YYYY-MM-DD")
-            // trip.tripEndDate.format("YYYY-MM-DD")
+            // console.log('found this trip', trip)
             res.render('trips/edit', {trip, title: `Edit Trip: ${trip.tripName}`})
         })
         .catch(err => console.log.error)
@@ -59,7 +56,7 @@ router.patch('/:id', checkLogin, (req, res) => {
             }
         })
         .then(data => {
-            console.log('what is updated', data)
+            // console.log('what is updated', data)
             res.redirect(`/trips`)
         })
         .catch(err => console.log.error)
@@ -86,7 +83,7 @@ router.get('/:id', (req, res) => {
         .populate('owner')
         .populate('comments.author')
         .then(trip => {
-            console.log('found this trip comments', trip.comments)
+            console.log('found this trip', trip)
             res.render('trips/show', { title: trip.tripName, trip})
         })
         .catch(err => console.log.error)

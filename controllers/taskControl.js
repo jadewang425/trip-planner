@@ -32,8 +32,23 @@ router.patch('/:id', checkLogin, (req, res) => {
     res.send('edit task route')
 })
 // delete
-router.delete('/:id', checkLogin, (req, res) => {
-    res.send('delete task route')
+router.delete('/:tripId/:taskId', checkLogin, (req, res) => {
+    // console.log('delete task route')
+    // res.send('delete task route')
+    Trip.findById(req.params.tripId)
+        .then(trip => {
+            const theTask = trip.tasks.id(req.params.taskId)
+            if(req.user.id == trip.owner) {
+                theTask.deleteOne()
+                return trip.save()
+            } else {
+                res.send('something went wrong')
+            }
+        })
+        .then(trip => {
+            res.redirect(`/trips/${trip._id}`)
+        })
+        .catch(error => console.error)
 })
 
 // export
