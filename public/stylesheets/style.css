@@ -75,31 +75,29 @@ article {
     background-color: rgb(96, 115, 61);
 }
 
+.nav-link {
+    padding: 0.8rem;
+    margin: 0;
+}
+
+.nav-link:hover {
+    background-color: rgb(115, 133, 79);
+}
+
 a > img {
     height: 3vh;
 }
 
 #new-trip-form {
-  display: grid;
-  grid-gap: 10px;
-  margin: auto 10px;
-  grid-template-columns: repeat(2, minmax(auto, 30vh));
-  justify-content: center;
+    margin: 0 60vh
 }
 
-#new-trip-form input[type="submit"] {
-    grid-column: span 2;
-    width: 10rem;
-    justify-self: center;
-    margin: 20px 0;
-  }
-
-#trip-desc-box {
-height: 15vh;
-}
+/* #new-trip-form > div {
+    max-width: 50vh;
+} */
 
 .comments-layout {
-display: block;
+display: inline-block;
 padding: 5px;
 margin: 10px 20px;
 }
@@ -108,3 +106,5 @@ td > img {
 border-radius: 50%;
 height: 50px;
 }
+
+

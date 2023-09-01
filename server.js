@@ -9,6 +9,7 @@ const AuthRouter = require('./controllers/authControl');
 const TripRouter = require('./controllers/tripControl');
 const CommentRouter = require('./controllers/commentControl');
 const TaskRouter = require('./controllers/taskControl');
+// const HomeRouter = require('./controllers/homeControl');
 
 const app = express();
 
@@ -21,7 +22,7 @@ middleware(app);
 
 // register routes
 app.get('/', (req, res) => {
-    res.redirect('/trips');
+    res.render('home', { title: 'Trip Planner' });
 })
 app.use('/', AuthRouter);
 app.use('/trips', TripRouter);

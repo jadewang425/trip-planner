@@ -33,11 +33,11 @@
             <input type="submit" value="Add Task">
         </form>
         <div class="trip-update-btns">
-            <a href="/trips/<%= trip._id %>/edit">
+            <a href="/trips/<%= trip._id %>/edit" class="btn btn-outline-warning btn-sm">
                 Edit Trip
             </a>
             <form action="/trips/<%= trip._id %>?_method=DELETE" method="POST">
-                <input type="submit" value="Delete"></input>
+                <input class="btn btn-outline-danger btn-sm" type="submit" value="Delete"></input>
             </form>
             <% } %>
         </div> 
@@ -60,16 +60,18 @@
         <table class="table">
             <tbody >
                 <% trip.comments.forEach(comm => { %>
-                <tr class="card shadow comments-layout">
-                    <td class="col"><img src="<%= comm.author.avatar %>"></td>
-                    <td class="col"><strong><%= comm.author.name %></strong></td>
-                    <td class="col"><%= comm.comment %> - 
+                <tr class="card shadow comments-layout w-100">
+                    <td class="col align-middle"><img src="<%= comm.author.avatar %>"></td>
+                    <td class="col align-middle"><strong><%= comm.author.name %></strong></td>
+                    <td class="col align-middle"><%= comm.comment %> - 
                     <small><%= comm.createdAt.toLocaleDateString() %></small></td>
                     <% if (comm.author?._id.equals(user?._id)) { %>
-                        <td><form action="/comments/<%= trip._id%>/<%= comm.id %>?_method=DELETE"
+                        <td class="col align-middle ">
+                            <form action="/comments/<%= trip._id%>/<%= comm.id %>?_method=DELETE"
                             method="POST">
-                            <input type="submit" class="btn btn-danger" value="X">
-                        </form></td>
+                                <input type="submit" class="btn btn-outline-danger btn-sm" value="X">
+                            </form>
+                        </td>
                     <% } %>
                 <% }) %>
                 </tr>

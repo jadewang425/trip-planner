@@ -1,17 +1,23 @@
 <%- include('../partials/header') %>
 
 <form id="new-trip-form" action="/trips" method="POST">
-    <!-- <fieldset> -->
-        <label>Trip Name:</label>
-        <input type="text" name="tripName" required>
-        <label>Trip Start Date:</label>
-        <input type="date" name="tripStartDate" required>
-        <label>Trip End Date:</label>
-        <input type="date" name="tripEndDate" required>
-        <label>Trip Description:</label>
-        <input type="text" name="tripDesc" id="trip-desc-box" required>
-        <input type="submit" value="Start Planning">
-    <!-- </fieldset> -->
+    <div class="mb-3">
+        <label class="form-label">Trip Name:</label>
+        <input class="form-control" type="text" name="tripName" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Trip Start Date:</label>
+        <input class="form-control" type="date" name="tripStartDate" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Trip End Date:</label>
+        <input class="form-control" type="date" name="tripEndDate" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Trip Description:</label>
+        <textarea class="form-control" type="text" name="tripDesc" required></textarea>
+    </div>
+    <input type="submit" class="btn btn-outline-primary btn-sm" value="Start Planning">
 </form>
 
 <%- include('../partials/footer') %>
