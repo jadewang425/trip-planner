@@ -60,20 +60,17 @@ article {
     background-color: rgb(96, 115, 61);
 }
 
-.navbar-toggler, .navbar-brand {
-    margin: 0.2em;
+#navbarNav {
+    justify-content: flex-end;
 }
+/* .nav-link {
+    padding: 0.8rem;
+    margin: 0;
+} */
 
-.nav-link {
-    color: white;
-    width: 100%;
-    /* padding: 0.8rem;
-    margin: 0; */
-}
-
-.nav-link:hover {
+/* .nav-link:hover {
     background-color: rgb(115, 133, 79);
-}
+} */
 
 a > img {
     height: 3vh;
