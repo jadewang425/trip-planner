@@ -1,16 +1,23 @@
 <%- include('../partials/header') %>
 
-<form id="new-trip-form" action="/trips/<%= trip._id %>?_method=PATCH" method="POST">
-    <!-- <fieldset> -->
-        <label>Trip Name:</label>
-        <input type="text" name="tripName" required value="<%= trip.tripName %>">
-        <label>Trip Start Date:</label>
-        <input type="text" name="tripStartDate" required value="<%= trip.tripStartDate.toLocaleDateString() %>">
-        <label>Trip End Date:</label>
-        <input type="date" name="tripEndDate" required value="<%= trip.tripEndDate %>">
-        <label>Trip Description:</label>
-        <input type="text" name="tripDesc" id="trip-desc-box" required value="<%= trip.tripDesc %>">
-        <input type="submit" value="Edit Trip">
+<form id="trip-edit-form" action="/trips/<%= trip._id %>?_method=PATCH" method="POST">
+    <div class="mb-3">
+        <label class="form-label">Trip Name:</label>
+        <input class="form-control" type="text" name="tripName" required value="<%= trip.tripName %>">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Trip Start Date:</label>
+        <input class="form-control" type="text" name="tripStartDate" required value="<%= trip.tripStartDate.toLocaleDateString() %>">
+    </div>  
+    <div class="mb-3">
+        <label class="form-label">Trip End Date:</label>
+        <input class="form-control" type="date" name="tripEndDate" required value="<%= trip.tripEndDate %>">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Trip Description:</label>
+        <input class="form-control" type="text" name="tripDesc" id="trip-edit-desc-box" required value="<%= trip.tripDesc %>">
+    </div>
+    <input type="submit" value="Edit Trip">
     <!-- </fieldset> -->
 </form>
 

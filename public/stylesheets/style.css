@@ -15,23 +15,6 @@ body {
         "main"
         "footer"
 }
-  
-/* body > nav {
-    grid-area: nav;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px 0 30px;
-}
-
-nav > a {
-    font-size: 3vmin;
-    color: black;
-    margin: 20px;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 5px;
-} */
 
 header {
     width: 100%;
@@ -56,6 +39,9 @@ header > img {
 h1 {
     font-size: 10vmin;
     font-family: 'Dancing Script', cursive;
+}
+
+h1, #homepage {
     margin: 20px;
 }
 
@@ -71,13 +57,18 @@ article {
 }
 
 .navbar {
-    color: white;
     background-color: rgb(96, 115, 61);
 }
 
+.navbar-toggler, .navbar-brand {
+    margin: 0.2em;
+}
+
 .nav-link {
-    padding: 0.8rem;
-    margin: 0;
+    color: white;
+    width: 100%;
+    /* padding: 0.8rem;
+    margin: 0; */
 }
 
 .nav-link:hover {
@@ -88,13 +79,17 @@ a > img {
     height: 3vh;
 }
 
-#new-trip-form {
-    margin: 0 60vh
+#trip-new-form, 
+#trip-edit-form {
+    border: 1px solid black;
+    /* display: flex;
+    flex-direction: column; */
 }
 
-/* #new-trip-form > div {
-    max-width: 50vh;
-} */
+.form-control {
+    width: auto;
+    text-align: center;
+}
 
 .comments-layout {
 display: inline-block;
@@ -107,4 +102,9 @@ border-radius: 50%;
 height: 50px;
 }
 
-
+.trip-update-btns {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+}

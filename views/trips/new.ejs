@@ -1,17 +1,17 @@
 <%- include('../partials/header') %>
 
-<form id="new-trip-form" action="/trips" method="POST">
+<form id="trip-new-form" action="/trips" method="POST">
     <div class="mb-3">
         <label class="form-label">Trip Name:</label>
         <input class="form-control" type="text" name="tripName" required>
     </div>
     <div class="mb-3">
         <label class="form-label">Trip Start Date:</label>
-        <input class="form-control" type="date" name="tripStartDate" required>
+        <input class="form-control mx-sm-3" type="date" name="tripStartDate" required>
     </div>
     <div class="mb-3">
         <label class="form-label">Trip End Date:</label>
-        <input class="form-control" type="date" name="tripEndDate" required>
+        <input class="form-control mx-sm-3" type="date" name="tripEndDate" required>
     </div>
     <div class="mb-3">
         <label class="form-label">Trip Description:</label>
