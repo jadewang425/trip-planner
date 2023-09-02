@@ -58,19 +58,23 @@ article {
 
 .navbar {
     background-color: rgb(96, 115, 61);
+    padding: 0.5em;
 }
 
 #navbarNav {
     justify-content: flex-end;
+    height: 100%
 }
-/* .nav-link {
-    padding: 0.8rem;
-    margin: 0;
-} */
 
-/* .nav-link:hover {
+.nav-link {
+    color: white;
+    padding: 0.5em 1em;
+}
+
+.nav-link:hover {
     background-color: rgb(115, 133, 79);
-} */
+    border-radius: 0.375rem;
+}
 
 a > img {
     height: 3vh;
