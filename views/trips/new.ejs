@@ -1,23 +1,25 @@
 <%- include('../partials/header') %>
 
 <form id="trip-new-form" action="/trips" method="POST">
+    <label class="form-label">Trip Name:</label>
     <div class="mb-3">
-        <label class="form-label">Trip Name:</label>
-        <input class="form-control" type="text" name="tripName" required>
+        <input class="form-control new-form-text" type="text" name="tripName" required>
     </div>
+    <label class="form-label">Trip Start Date:</label>
     <div class="mb-3">
-        <label class="form-label">Trip Start Date:</label>
         <input class="form-control mx-sm-3" type="date" name="tripStartDate" required>
     </div>
+    <label class="form-label">Trip End Date:</label>
     <div class="mb-3">
-        <label class="form-label">Trip End Date:</label>
         <input class="form-control mx-sm-3" type="date" name="tripEndDate" required>
     </div>
+    <label class="form-label">Trip Description:</label>
     <div class="mb-3">
-        <label class="form-label">Trip Description:</label>
-        <textarea class="form-control" type="text" name="tripDesc" required></textarea>
+        <textarea class="form-control new-form-text" type="text" name="tripDesc" required></textarea>
     </div>
-    <input type="submit" class="btn btn-outline-primary btn-sm" value="Start Planning">
+    <div>
+        <input type="submit" class="btn btn-outline-primary btn-sm" value="Start Planning">
+    </div>
 </form>
 
 <%- include('../partials/footer') %>

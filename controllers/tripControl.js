@@ -41,7 +41,7 @@ router.get('/:id/edit', checkLogin, (req, res) => {
     Trip.findById(req.params.id)
         .then(trip => {
             // console.log('found this trip', trip)
-            res.render('trips/edit', {trip, title: `Edit Trip: ${trip.tripName}`})
+            res.render('trips/edit', {trip, title: `Edit: ${trip.tripName}`})
         })
         .catch(err => console.log.error)
 })

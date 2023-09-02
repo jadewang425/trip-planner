@@ -80,17 +80,22 @@ a > img {
     height: 3vh;
 }
 
-#trip-new-form, 
-#trip-edit-form {
-    border: 1px solid black;
-    /* display: flex;
-    flex-direction: column; */
+/* for styling start  */
+#trip-new-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .form-control {
     width: auto;
-    text-align: center;
 }
+
+.new-form-text {
+    width: 50vh;
+}
+
+/* form styling ends  */
 
 .comments-layout {
 display: inline-block;
