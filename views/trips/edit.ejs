@@ -7,17 +7,20 @@
     </div>
     <label class="form-label">Trip Start Date:</label>
     <div class="mb-3">
-        <input class="form-control" type="text" name="tripStartDate" required value="<%= trip.tripStartDate.toLocaleDateString() %>">
+        <input class="form-control" type="date" name="tripStartDate" required value="<%= sDate %>">
     </div>  
     <label class="form-label">Trip End Date:</label>
     <div class="mb-3">
-        <input class="form-control" type="date" name="tripEndDate" required value="<%= trip.tripEndDate %>">
+        <input class="form-control" type="date" name="tripEndDate" required value="<%= eDate %>">
     </div>
     <label class="form-label">Trip Description:</label>
     <div class="mb-3">
         <textarea class="form-control form-text" type="text" name="tripDesc" required><%= trip.tripDesc %></textarea>
     </div>
-    <input type="submit" value="Edit Trip">
+    <div>
+        <input type="submit" value="Edit Trip">
+        <a href="/trips/<%= trip._id %>">Cancel Edit</a>
+    </div>
     <!-- </fieldset> -->
 </form>
 

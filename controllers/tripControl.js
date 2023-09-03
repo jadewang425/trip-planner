@@ -40,8 +40,16 @@ router.post('/', checkLogin, (req, res) => {
 router.get('/:id/edit', checkLogin, (req, res) => {
     Trip.findById(req.params.id)
         .then(trip => {
+            function date(d) {
+                const year = d.getFullYear()
+                const month = d.getMonth() + 1 < 10 ? ('0'+ (d.getMonth() + 1)) : (d.getMonth() + 1)
+                const date = d.getDate() < 10 ? ('0'+ (d.getDate())) : d.getDate()
+                return `${year}-${month}-${date}`
+            }
+            const sDate = date(trip.tripStartDate)
+            const eDate = date(trip.tripEndDate)
             // console.log('found this trip', trip)
-            res.render('trips/edit', {trip, title: `Edit: ${trip.tripName}`})
+            res.render('trips/edit', {trip, title: `Edit: ${trip.tripName}`, sDate, eDate})
         })
         .catch(err => console.log.error)
 })
