@@ -19,10 +19,10 @@
                     <% if (trip.tasks.length) { %>
                         <% trip.tasks.forEach(task => { %>
                             <tr class="align-top p-1 task-items">
-                                <td class="col"> - </td>
+                                <td class="col px-2"> - </td>
                                 <td class="col text-start w-100"><%= task.item %></td>
-                                <td class="col"><small><%= task.createdAt.toLocaleDateString() %></small></td>
-                                <td class="col py-1">
+                                <td class="col p-1"><small><%= task.createdAt.toLocaleDateString() %></small></td>
+                                <td class="col w-auto py-1">
                                     <% if (trip.owner?._id.equals(user?._id)) { %>
                                         <form action="/tasks/<%= trip._id%>/<%=task._id%>?_method=DELETE" method="POST">
                                             <input type="submit" class="btn btn-outline-danger btn-sm" value="X">
