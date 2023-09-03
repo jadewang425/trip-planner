@@ -14,44 +14,44 @@
         </div>
         <div class="tasks card">
             <div class="card-header">Tasks:</div>
-            <div>
-                <table class="w-100">
-                    <tbody>
-                        <% if (trip.tasks.length) { %>
-                            <% trip.tasks.forEach(task => { %>
-                                <tr class="align-top">
-                                    <td class="col w-auto p-1"> - </td>
-                                    <td class="col text-start"><%= task.item %></td>
-                                    <td class="col text-end w-auto"><small><%= task.createdAt.toLocaleDateString() %></small></td>
-                                    <td class="col w-auto">
-                                        <% if (trip.owner?._id.equals(user?._id)) { %>
-                                            <form action="/tasks/<%= trip._id%>/<%=task._id%>?_method=DELETE" method="POST">
-                                                <input type="submit" class="btn btn-outline-danger btn-sm" value="X">
-                                            </form>
-                                        <% } %>
-                                    </td>
-                                </tr>
-                            <% }) %>
-
-                        <% } else { %>
-                            <tr class="text-muted">No Tasks Added Yet</tr>
-                        <% } %>
-                        <% if (trip.owner?._id.equals(user?._id)) { %>
-                            <tr>
+            <table class="w-100">
+                <tbody>
+                    <% if (trip.tasks.length) { %>
+                        <% trip.tasks.forEach(task => { %>
+                            <tr class="align-top p-1 task-items">
                                 <td class="col"> - </td>
-                                <td colspan="2">
-                                    <form action="/tasks/<%= trip._id%>" method="POST">
-                                        <input type="text" name="item" class="w-100">
-                                </td>
-                                <td>
-                                        <input type="submit" value="Add">
-                                    </form>
+                                <td class="col text-start w-100"><%= task.item %></td>
+                                <td class="col"><small><%= task.createdAt.toLocaleDateString() %></small></td>
+                                <td class="col py-1">
+                                    <% if (trip.owner?._id.equals(user?._id)) { %>
+                                        <form action="/tasks/<%= trip._id%>/<%=task._id%>?_method=DELETE" method="POST">
+                                            <input type="submit" class="btn btn-outline-danger btn-sm" value="X">
+                                        </form>
+                                    <% } %>
                                 </td>
                             </tr>
-                        <% } %>
-                    </tbody>
-                </table>
-            </div>
+                        <% }) %>
+
+                    <% } else { %>
+                        <tr class="p-1">
+                            <td class="secondary-text" colspan="4">No Tasks Added Yet</td>
+                        </tr>
+                    <% } %>
+                    <% if (trip.owner?._id.equals(user?._id)) { %>
+                        <tr>
+                            <td class="col px-2"> - </td>
+                            <td class="col" colspan="2">
+                                <form action="/tasks/<%= trip._id%>" method="POST">
+                                    <input type="text" name="item" class="w-100 text-start">
+                            </td>
+                            <td class="col py-1">
+                                    <input type="submit" value="Add">
+                                </form>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
         </div>
     </div>
     <div class="trip-update-btns">
