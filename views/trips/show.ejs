@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <section class="show-trip-details">
     <div><%= trip.tripStartDate.toLocaleDateString() %> - <%= trip.tripEndDate.toLocaleDateString() %></div>
-    <div><%= trip.tripDesc %></div>
+    <div class="trip-desc"><%= trip.tripDesc %></div>
     <% if(trip.owner) {%>
         <div><strong>Created by: </strong></div>
         <div><%= trip.owner.name %></div>
