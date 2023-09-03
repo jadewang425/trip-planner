@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
 
+<h3>Upcoming Trips</h3>
 <% trips.forEach(trip => { %>
     <article>
         <h4><%= trip.tripName %></h4>
@@ -7,6 +8,9 @@
         <div class="mb-2"><%= trip.tripDesc %></div>
         <a href="/trips/<%= trip.id %>" class="btn btn-outline-secondary">See Details</a>
     </article>
-    <% })%>
+<% })%>
+
+<h3>Past Trips</h3>
+
 
 <%- include('../partials/footer') %>

@@ -30,10 +30,7 @@ const tripSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    members: [{
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    }],
+    attendees: [String],
     tasks: [taskSchema],
     comments: [commentSchema]
 }, {

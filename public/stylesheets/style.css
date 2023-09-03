@@ -3,6 +3,7 @@
     font-family: Verdana;
     /* color: #424748; */
     text-align: center;
+    
 }
   
 body {
@@ -69,27 +70,33 @@ article {
     border-radius: 0.375rem;
 }
 
-a > img {
+.login > img {
     height: 3vh;
 }
 
-/* for styling start  */
-#trip-new-form, #trip-edit-form {
+.trip-desc {
+    min-height: 10vh;
+    margin: 0 20px;
+}
+
+.trip-lists {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    margin: 0 30px;
 }
 
-.form-control {
-    width: auto;
+.attendees, .tasks {
+    width: 40vh;
 }
 
-.form-text {
-    width: 50vh;
+.trip-update-btns {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
 }
 
-/* form styling ends  */
-
+/* comment section starts */
 .comments-layout {
     padding: 5px;
     margin: 10px 20px;
@@ -109,7 +116,7 @@ a > img {
     height: 50px;
 }
 
-.user-name {
+.user {
     width: 150px;
 }
 
@@ -117,10 +124,21 @@ a > img {
     justify-content: flex-end;
     width: 3em;
 }
+/* comment section ends */
 
-.trip-update-btns {
+/* form styling starts  */
+#trip-new-form, #trip-edit-form {
     display: flex;
-    justify-content: center;
-    padding: 10px;
-    gap: 10px;
+    flex-direction: column;
+    align-items: center;
 }
+
+.form-control {
+    width: auto;
+}
+
+.form-text {
+    width: 50vh;
+}
+
+/* form styling ends  */

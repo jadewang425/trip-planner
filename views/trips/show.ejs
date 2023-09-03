@@ -1,46 +1,69 @@
 <%- include('../partials/header') %>
-<section class="show-trip-details">
-    <div><%= trip.tripStartDate.toLocaleDateString() %> - <%= trip.tripEndDate.toLocaleDateString() %></div>
+<section>
+    <div class="date"><%= trip.tripStartDate.toLocaleDateString() %> - <%= trip.tripEndDate.toLocaleDateString() %></div>
     <div class="trip-desc"><%= trip.tripDesc %></div>
-    <% if(trip.owner) {%>
-        <div><strong>Created by: </strong></div>
-        <div><%= trip.owner.name %></div>
-    <% } %>
-    <div><strong>Participants:</strong></div>
-    <div><%= trip.members %></div>
-    <div><strong>Tasks:</strong></div>
-    <% if (trip.tasks.length) { %>
-        <ul>
-            <% trip.tasks.forEach(task => { %>
-                <li>
-                <%= task.item %> - <small><%= task.createdAt.toLocaleDateString() %></small>
-                    <% if (trip.owner?._id.equals(user?._id)) { %>
-                    <form action="/tasks/<%= trip._id%>/<%=task._id%>?_method=DELETE" method="POST">
-                        <input type="submit" class="btn btn-outline-danger" value="X">
-                    </form>
-                <% } %>
-                </li>
-            <% }) %>
-        </ul>
-    <% } else { %>
-        <h6>No Tasks Added Yet</h6>
-    <% } %>
-    <% if (trip.owner?._id.equals(user?._id)) { %>
-        <!-- add task form -->
-        <form action="/tasks/<%= trip._id%>" method="POST">
-            <label>Add A Task</label>
-            <input type="text" name="item">
-            <input type="submit" value="Add Task">
-        </form>
-        <div class="trip-update-btns">
+    <div class="mb-3">
+        <% if(trip.owner) {%>
+        <strong>Created by: </strong><%= trip.owner.name %>
+        <% } %>
+    </div>
+    <div class="trip-lists">
+        <div class="attendees card">
+            <div class="card-header">Attendees:</div>
+            <div><%= trip.attendees %></div>
+        </div>
+        <div class="tasks card">
+            <div class="card-header">Tasks:</div>
+            <div>
+                <table class="w-100">
+                    <tbody>
+                        <% if (trip.tasks.length) { %>
+                            <% trip.tasks.forEach(task => { %>
+                                <tr class="align-top">
+                                    <td class="col w-auto p-1"> - </td>
+                                    <td class="col text-start"><%= task.item %></td>
+                                    <td class="col text-end w-auto"><small><%= task.createdAt.toLocaleDateString() %></small></td>
+                                    <td class="col w-auto">
+                                        <% if (trip.owner?._id.equals(user?._id)) { %>
+                                            <form action="/tasks/<%= trip._id%>/<%=task._id%>?_method=DELETE" method="POST">
+                                                <input type="submit" class="btn btn-outline-danger btn-sm" value="X">
+                                            </form>
+                                        <% } %>
+                                    </td>
+                                </tr>
+                            <% }) %>
+
+                        <% } else { %>
+                            <tr class="text-muted">No Tasks Added Yet</tr>
+                        <% } %>
+                        <% if (trip.owner?._id.equals(user?._id)) { %>
+                            <tr>
+                                <td class="col"> - </td>
+                                <td colspan="2">
+                                    <form action="/tasks/<%= trip._id%>" method="POST">
+                                        <input type="text" name="item" class="w-100">
+                                </td>
+                                <td>
+                                        <input type="submit" value="Add">
+                                    </form>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="trip-update-btns">
+        <% if (trip.owner?._id.equals(user?._id)) { %>
             <a href="/trips/<%= trip._id %>/edit" class="btn btn-outline-warning btn-sm">
                 Edit Trip
             </a>
             <form action="/trips/<%= trip._id %>?_method=DELETE" method="POST">
                 <input class="btn btn-outline-danger btn-sm" type="submit" value="Delete Trip"></input>
             </form>
-            <% } %>
-        </div> 
+        <% } %>
+    </div> 
 </section>
 <hr>
 <!-- comments form  -->
@@ -59,8 +82,12 @@
             <% trip.comments.forEach(comm => { %>
                 <div class="shadow mb-3">
                     <div class="p-3"><img class="user-avatar" src="<%= comm.author.avatar %>"></div>
-                    <div class="text-start p-3 user-name"><strong><%= comm.author.name %></strong></div>
-                    <div class="col text-start py-3"><%= comm.comment %> - <small><%= comm.createdAt.toLocaleDateString() %></small></div>
+                    <div class="text-start p-3 user">
+                        <strong><%= comm.author.name %></strong>
+                        <br>
+                        <%= comm.createdAt.toLocaleDateString() %>
+                    </div>
+                    <div class="col text-start py-3"><%= comm.comment %></div>
                     <div class="text-center comment-delete">
                         <% if (comm.author?._id.equals(user?._id)) { %>
                             <form action="/comments/<%= trip._id%>/<%= comm.id %>?_method=DELETE"
