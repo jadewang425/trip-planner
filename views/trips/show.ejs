@@ -48,35 +48,30 @@
     <h5>Comments</h5>
     <% if (user) { %>
         <form action="/comments/<%= trip._id%>" method="POST" class="col-md-6 offset-md-3">
-            <fieldset>
-                <label class="form-label">Add A Comment: </label>
-                <input type="text" name="comment">
-                <input type="submit" class="btn btn-info" value="Add">
-            </fieldset>
+            <label class="form-label">Add A Comment: </label>
+            <textarea type="text" name="comment"></textarea>
+            <input type="submit" class="btn btn-outline-info btn-sm" value="Add">
         </form>
     <% }%>
     <!-- comments section -->
     <% if (trip.comments.length) { %>
-        <table class="table">
-            <tbody >
-                <% trip.comments.forEach(comm => { %>
-                <tr class="card shadow comments-layout w-100">
-                    <td class="col align-middle"><img src="<%= comm.author.avatar %>"></td>
-                    <td class="col align-middle"><strong><%= comm.author.name %></strong></td>
-                    <td class="col align-middle"><%= comm.comment %> - 
-                    <small><%= comm.createdAt.toLocaleDateString() %></small></td>
-                    <% if (comm.author?._id.equals(user?._id)) { %>
-                        <td class="col align-middle ">
+        <div class="comments-layout">
+            <% trip.comments.forEach(comm => { %>
+                <div class="shadow mb-3">
+                    <div class="p-3"><img class="user-avatar" src="<%= comm.author.avatar %>"></div>
+                    <div class="text-start p-3 user-name"><strong><%= comm.author.name %></strong></div>
+                    <div class="col text-start py-3"><%= comm.comment %> - <small><%= comm.createdAt.toLocaleDateString() %></small></div>
+                    <div class="text-center comment-delete">
+                        <% if (comm.author?._id.equals(user?._id)) { %>
                             <form action="/comments/<%= trip._id%>/<%= comm.id %>?_method=DELETE"
                             method="POST">
                                 <input type="submit" class="btn btn-outline-danger btn-sm" value="X">
                             </form>
-                        </td>
-                    <% } %>
-                <% }) %>
-                </tr>
-            </tbody>
-        </table>
+                        <% } %>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
     <% } else { %>
         <h6>No Comments Yet</h6>
     <% } %>

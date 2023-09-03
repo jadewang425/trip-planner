@@ -48,6 +48,8 @@ router.get('/:id/edit', checkLogin, (req, res) => {
             }
             const sDate = date(trip.tripStartDate)
             const eDate = date(trip.tripEndDate)
+            const endDate = trip.tripEndDate + 1
+            console.log('endDate', endDate)
             // console.log('found this trip', trip)
             res.render('trips/edit', {trip, title: `Edit: ${trip.tripName}`, sDate, eDate})
         })

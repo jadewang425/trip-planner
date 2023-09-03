@@ -1,12 +1,14 @@
 <%- include('../partials/header') %>
-    
-    <% trips.forEach(trip => { %>
-        <article>
-            <h4><%= trip.tripName %></h4>
-            <div><%= trip.tripStartDate.toLocaleDateString() %> - <%= trip.tripEndDate.toLocaleDateString() %></div>
-            <div><%= trip.tripDesc %></div>
-            <a href="/trips/<%= trip.id %>">See Details</a>
-        </article>
+
+<h3>Upcoming Trips</h3>
+<% trips.forEach(trip => { %>
+    <article>
+        <h4><%= trip.tripName %></h4>
+        <div><%= trip.tripStartDate.toLocaleDateString() %> - <%= trip.tripEndDate.toLocaleDateString() %></div>
+        <div><%= trip.tripDesc %></div>
+        <a href="/trips/<%= trip.id %>">See Details</a>
+    </article>
     <% })%>
+<h3>Upcoming Trips</h3>
 
 <%- include('../partials/footer') %>

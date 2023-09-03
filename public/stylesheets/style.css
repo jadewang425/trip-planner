@@ -98,14 +98,31 @@ a > img {
 /* form styling ends  */
 
 .comments-layout {
-display: inline-block;
-padding: 5px;
-margin: 10px 20px;
+    padding: 5px;
+    margin: 10px 20px;
 }
 
-td > img {
-border-radius: 50%;
-height: 50px;
+.shadow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+
+.user-avatar {
+    border-radius: 50%;
+    height: 50px;
+}
+
+.user-name {
+    width: 150px;
+}
+
+.comment-delete {
+    justify-content: flex-end;
+    width: 3em;
 }
 
 .trip-update-btns {
