@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <h3>Upcoming Trips</h3>
-<% trips.forEach(trip => { %>
+<% upcomingTrips.forEach(trip => { %>
     <article>
         <h4><%= trip.tripName %></h4>
         <div><%= trip.tripStartDate.toLocaleDateString() %> - <%= trip.tripEndDate.toLocaleDateString() %></div>
@@ -11,6 +11,13 @@
 <% })%>
 
 <h3>Past Trips</h3>
-
+<% pastTrips.forEach(trip => { %>
+    <article>
+        <h4><%= trip.tripName %></h4>
+        <div><%= trip.tripStartDate.toLocaleDateString() %> - <%= trip.tripEndDate.toLocaleDateString() %></div>
+        <div class="mb-2"><%= trip.tripDesc %></div>
+        <a href="/trips/<%= trip.id %>" class="btn btn-outline-secondary">See Details</a>
+    </article>
+<% })%>
 
 <%- include('../partials/footer') %>

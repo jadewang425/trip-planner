@@ -10,9 +10,9 @@
     <div class="trip-lists">
         <div class="attendants card">
             <div class="card-header">Attendants</div>
-            <table class="w-100 table table-striped">
-                <tbody>
-                    <% if (trip.attendants.length) { %>
+            <% if (trip.attendants.length) { %>
+                <table class="w-100 table table-striped">
+                    <tbody>
                         <% trip.attendants.forEach(att => { %>
                             <tr>
                                 <td class="px-3 text-start w-100">
@@ -28,13 +28,11 @@
                                 </td>
                             </tr>
                         <% }) %>
-                    <% } else { %>
-                        <tr class="p-1">
-                            <td class="secondary-text" colspan="4">No Attendants Added Yet</td>
-                        </tr>
-                    <% } %>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <div class="p-1 secondary-text">No Attendants Added Yet</div>
+            <% } %>
             <% if (trip.owner?._id.equals(user?._id)) { %>
                 <div class="w-100 px-2">
                     <form action="/attendants/<%= trip._id%>" method="POST" class="text-start">
@@ -66,10 +64,9 @@
                                 </td>
                             </tr>
                         <% }) %>
-
                     <% } else { %>
-                        <tr class="p-1">
-                            <td class="secondary-text" colspan="4">No Tasks Added Yet</td>
+                        <tr>
+                            <td class="p-1 secondary-text" colspan="4">No Tasks Added Yet</td>
                         </tr>
                     <% } %>
                     <% if (trip.owner?._id.equals(user?._id)) { %>

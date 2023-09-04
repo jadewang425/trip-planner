@@ -10,11 +10,20 @@ const router = express.Router()
 // routes
 // index
 router.get('/', (req, res) => {
-    Trip.find({})
+    Trip.find({}).sort('tripStartDate')
         .then(trips => {
             // console.log('found the trips', trips)
+            const today = new Date()
+            const pastTrips = trips.filter(trip => {
+                return trip.tripStartDate && trip.tripEndDate < today
+            })
+            const upcomingTrips = trips.filter(trip => {
+                return !pastTrips.includes(trip)
+            })
+            // console.log('pastTrips', pastTrips)
+            // console.log('upcomingTrips', upcomingTrips)
             // res.json(trips)
-            res.render('trips/index', { title: 'My Trips', trips})
+            res.render('trips/index', { title: 'My Trips', pastTrips, upcomingTrips})
         })
         .catch(err => console.log.error)
 })
