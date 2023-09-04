@@ -10,7 +10,7 @@ const router = express.Router()
 // create
 router.post('/:tripId', checkLogin, (req, res) => {
     Trip.findById(req.params.tripId)
-        // push the task into the trip tasks array
+        // push the attendant into the trip attendants array
         // save the trip
         .then(trip => {
             trip.attendants.push(req.body)
@@ -33,11 +33,11 @@ router.patch('/:id', checkLogin, (req, res) => {
 })
 // delete
 router.delete('/:tripId/:attendantId', checkLogin, (req, res) => {
-    // console.log('delete task route')
-    // res.send('delete task route')
+    // console.log('delete attendant route')
+    // res.send('delete attendant route')
     Trip.findById(req.params.tripId)
         .then(trip => {
-            const theAttendant = trip.attendants.id(req.params.taskId)
+            const theAttendant = trip.attendants.id(req.params.attendantId)
             if(req.user.id == trip.owner) {
                 theAttendant.deleteOne()
                 return trip.save()

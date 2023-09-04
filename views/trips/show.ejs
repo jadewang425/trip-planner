@@ -8,16 +8,43 @@
         <% } %>
     </div>
     <div class="trip-lists">
-        <div class="attendees card">
-            <div class="card-header">Attendees:</div>
-            <table class="w-100">
+        <div class="attendants card">
+            <div class="card-header">Attendants:</div>
+            <table class="w-100 table table-striped">
                 <tbody>
-                    <% if (trip.attendees.length) { %>
-                        <% trip.attendees.forEach(att => { %>
-                            <%= att.name %><br>
-                            <%= att.email %>
+                    <% if (trip.attendants.length) { %>
+                        <% trip.attendants.forEach(att => { %>
+                            <tr>
+                                <td class="px-3 text-start w-100">
+                                    <strong><%= att.attName %></strong><br>
+                                    <%= att.attEmail %>
+                                </td>
+                                <td class="col w-auto py-1 align-middle">
+                                    <% if (trip.owner?._id.equals(user?._id)) { %>
+                                        <form action="/tasks/<%= trip._id%>/<%=att._id%>?_method=DELETE" method="POST">
+                                            <input type="submit" class="btn btn-outline-danger btn-sm" value="X">
+                                        </form>
+                                    <% } %>
+                                </td>
+                            </tr>
                         <% }) %>
-
+                    <% } else { %>
+                        <tr class="p-1">
+                            <td class="secondary-text" colspan="4">No Attendants Added Yet</td>
+                        </tr>
+                    <% } %>
+                    <% if (trip.owner?._id.equals(user?._id)) { %>
+                        <tr>
+                            <td class="col" colspan="2">
+                                <form action="/attendants/<%= trip._id%>" method="POST" class="text-start">
+                                    <label>Name: </label>
+                                    <input type="text" name="attName" class="w-100">
+                                    <label>Email: </label>
+                                    <input type="text" name="attEmail" class="w-100"><br>
+                                    <input type="submit" value="Add" class="m-1">
+                                </form>
+                            </td>
+                        </tr>
                     <% } %>
                 </tbody>
             </table>
@@ -32,7 +59,7 @@
                                 <td class="col px-2"> - </td>
                                 <td class="col text-start w-100"><%= task.item %></td>
                                 <td class="col p-1"><small><%= task.createdAt.toLocaleDateString() %></small></td>
-                                <td class="col w-auto py-1">
+                                <td class="col w-auto py-1 align-middle">
                                     <% if (trip.owner?._id.equals(user?._id)) { %>
                                         <form action="/tasks/<%= trip._id%>/<%=task._id%>?_method=DELETE" method="POST">
                                             <input type="submit" class="btn btn-outline-danger btn-sm" value="X">
@@ -54,7 +81,7 @@
                                 <form action="/tasks/<%= trip._id%>" method="POST">
                                     <input type="text" name="item" class="w-100 text-start">
                             </td>
-                            <td class="col py-1">
+                            <td class="col p-1">
                                     <input type="submit" value="Add">
                                 </form>
                             </td>
@@ -82,7 +109,7 @@
     <% if (user) { %>
         <form action="/comments/<%= trip._id%>" method="POST" class="col-md-6 offset-md-3">
             <label class="form-label">Add A Comment: </label>
-            <textarea type="text" name="comment"></textarea>
+            <textarea type="text" name="comment" class="text-start"></textarea>
             <input type="submit" class="btn btn-outline-info btn-sm" value="Add">
         </form>
     <% }%>
@@ -110,7 +137,7 @@
             <% }) %>
         </div>
     <% } else { %>
-        <h6>No Comments Yet</h6>
+        <div class="secondary-text mb-3">No Comments Yet</div>
     <% } %>
 </section>
 
