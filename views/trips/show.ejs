@@ -9,7 +9,7 @@
     </div>
     <div class="trip-lists">
         <div class="attendants card">
-            <div class="card-header">Attendants:</div>
+            <div class="card-header">Attendants</div>
             <table class="w-100 table table-striped">
                 <tbody>
                     <% if (trip.attendants.length) { %>
@@ -21,7 +21,7 @@
                                 </td>
                                 <td class="col w-auto py-1 align-middle">
                                     <% if (trip.owner?._id.equals(user?._id)) { %>
-                                        <form action="/tasks/<%= trip._id%>/<%=att._id%>?_method=DELETE" method="POST">
+                                        <form action="/attendants/<%= trip._id%>/<%=att._id%>?_method=DELETE" method="POST">
                                             <input type="submit" class="btn btn-outline-danger btn-sm" value="X">
                                         </form>
                                     <% } %>
@@ -33,32 +33,30 @@
                             <td class="secondary-text" colspan="4">No Attendants Added Yet</td>
                         </tr>
                     <% } %>
-                    <% if (trip.owner?._id.equals(user?._id)) { %>
-                        <tr>
-                            <td class="col" colspan="2">
-                                <form action="/attendants/<%= trip._id%>" method="POST" class="text-start">
-                                    <label>Name: </label>
-                                    <input type="text" name="attName" class="w-100">
-                                    <label>Email: </label>
-                                    <input type="text" name="attEmail" class="w-100"><br>
-                                    <input type="submit" value="Add" class="m-1">
-                                </form>
-                            </td>
-                        </tr>
-                    <% } %>
                 </tbody>
             </table>
+            <% if (trip.owner?._id.equals(user?._id)) { %>
+                <div class="w-100 px-2">
+                    <form action="/attendants/<%= trip._id%>" method="POST" class="text-start">
+                        <label>Name: </label>
+                        <input type="text" name="attName" class="mb-1 w-100 text-start"><br>
+                        <label>Email: </label>
+                        <input type="email" name="attEmail" class="mb-2 w-100 text-start"><br>
+                        <div><input type="submit" value="Add" class="mb-3 text-center"></div>
+                    </form>
+                </div>
+            <% } %>
         </div>
         <div class="tasks card">
-            <div class="card-header">Tasks:</div>
+            <div class="card-header">Tasks</div>
             <table class="w-100">
                 <tbody>
                     <% if (trip.tasks.length) { %>
                         <% trip.tasks.forEach(task => { %>
                             <tr class="align-top p-1 task-items">
-                                <td class="col px-2"> - </td>
-                                <td class="col text-start w-100"><%= task.item %></td>
-                                <td class="col p-1"><small><%= task.createdAt.toLocaleDateString() %></small></td>
+                                <td class="col p-2"> - </td>
+                                <td class="col text-start w-100 py-2"><%= task.item %></td>
+                                <td class="col py-2"><small><%= task.createdAt.toLocaleDateString() %></small></td>
                                 <td class="col w-auto py-1 align-middle">
                                     <% if (trip.owner?._id.equals(user?._id)) { %>
                                         <form action="/tasks/<%= trip._id%>/<%=task._id%>?_method=DELETE" method="POST">

@@ -4,14 +4,8 @@ const mongoose = require('../utils/connection')
 const { Schema } = mongoose
 
 const attendantSchema = new Schema({
-    attName: {
-        type: String,
-        required: true
-    },
-    attEmail: {
-        type: String,
-        required: true
-    }
+    attName: String,
+    attEmail: String
 }, {
     timestamps: true
 })
