@@ -9,7 +9,8 @@ const AuthRouter = require('./controllers/authControl');
 const TripRouter = require('./controllers/tripControl');
 const CommentRouter = require('./controllers/commentControl');
 const TaskRouter = require('./controllers/taskControl');
-// const HomeRouter = require('./controllers/homeControl');
+const AttendantRouter = require('./controllers/attendantControl');
+
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use('/', AuthRouter);
 app.use('/trips', TripRouter);
 app.use('/comments', CommentRouter);
 app.use('/tasks', TaskRouter);
+app.use('/attendants', AttendantRouter);
 
 
 // server listener

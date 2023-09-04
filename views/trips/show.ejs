@@ -10,7 +10,17 @@
     <div class="trip-lists">
         <div class="attendees card">
             <div class="card-header">Attendees:</div>
-            <div><%= trip.attendees %></div>
+            <table class="w-100">
+                <tbody>
+                    <% if (trip.attendees.length) { %>
+                        <% trip.attendees.forEach(att => { %>
+                            <%= att.name %><br>
+                            <%= att.email %>
+                        <% }) %>
+
+                    <% } %>
+                </tbody>
+            </table>
         </div>
         <div class="tasks card">
             <div class="card-header">Tasks:</div>
