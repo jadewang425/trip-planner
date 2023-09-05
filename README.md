@@ -2,7 +2,7 @@
 
 A trip planning application to stay organize and ensuring all the preparations are completed for each trip.
 
-### User Stories
+## User Stories
 AAU, I want to
 - View all the trips I created
 - Have an "add trip" page, and be able to enter
@@ -34,19 +34,19 @@ Steps:
 - Add tasks section with add and delete buttons
 - Add attendants section & styling
 
-###### HTML
+##### HTML
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Merriweather:wght@300&display=swap" rel="stylesheet">
 ```
-###### CSS
+##### CSS
 ```css
 font-family: 'Dancing Script', cursive;
 font-family: 'Merriweather', serif;
 ```
 
-#### Technologies Used:
+## Technologies Used:
 - Express.js
 - Mongoose
 - MongoDB
@@ -55,13 +55,13 @@ font-family: 'Merriweather', serif;
 - CSS
 
 ## Wireframe
-##### Homepage / All Trips
+#### Homepage / All Trips
 ![layout wireframe](https://i.imgur.com/yJYKRMQ.png)
-##### Add Trip page
+#### Add Trip page
 ![layout wireframe](https://i.imgur.com/yEA5tki.png)
-##### Trip Details
+#### Trip Details
 ![layout wireframe](https://i.imgur.com/yANO9s9.png)
-##### ERD
+#### ERD
 ![layout wireframe](https://i.imgur.com/qtzNyJm.png)
 
 ## [Link to Trip Planner](https://tripplanner.fly.dev/)
