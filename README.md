@@ -64,4 +64,4 @@ font-family: 'Merriweather', serif;
 ##### ERD
 ![layout wireframe](https://i.imgur.com/qtzNyJm.png)
 
-##[Link to Trip Planner](https://tripplanner.fly.dev/)
+## [Link to Trip Planner](https://tripplanner.fly.dev/)
