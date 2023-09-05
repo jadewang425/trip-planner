@@ -55,13 +55,13 @@ font-family: 'Merriweather', serif;
 - CSS
 
 ## Wireframe
-#### Homepage / All Trips
-![layout wireframe](https://i.imgur.com/yJYKRMQ.png)
-#### Add Trip page
-![layout wireframe](https://i.imgur.com/yEA5tki.png)
-#### Trip Details
-![layout wireframe](https://i.imgur.com/yANO9s9.png)
+#### All Trips/index
+![layout wireframe](https://i.imgur.com/QVtSvMA.png)
+#### Add Trip page/new
+![layout wireframe](https://i.imgur.com/zRzXJx3.png)
+#### Trip Details/show
+![layout wireframe](https://i.imgur.com/W0sE0HF.png)
 #### ERD
-![layout wireframe](https://i.imgur.com/qtzNyJm.png)
+![layout wireframe](https://i.imgur.com/rfPfWaf.png)
 
 ## [Link to Trip Planner](https://tripplanner.fly.dev/)
