@@ -10,9 +10,8 @@ const router = express.Router()
 // routes
 // index
 router.get('/', (req, res) => {
-    Trip.find({}).sort('tripStartDate')
+    Trip.find({owner: req.user.id}).sort('tripStartDate')
         .then(trips => {
-            // console.log('found the trips', trips)
             const today = new Date()
             const pastTrips = trips.filter(trip => {
                 return trip.tripStartDate && trip.tripEndDate < today
@@ -20,9 +19,6 @@ router.get('/', (req, res) => {
             const upcomingTrips = trips.filter(trip => {
                 return !pastTrips.includes(trip)
             })
-            // console.log('pastTrips', pastTrips)
-            // console.log('upcomingTrips', upcomingTrips)
-            // res.json(trips)
             res.render('trips/index', { title: 'My Trips', pastTrips, upcomingTrips})
         })
         .catch(err => console.log.error)
@@ -33,9 +29,7 @@ router.get('/new', checkLogin, (req, res) => {
 })
 // create
 router.post('/', checkLogin, (req, res) => {
-    // assign owner
     req.body.owner = req.user.id
-    // console.log(req.body.owner, req.user.id)
     Trip.create(req.body)
         .then(trip => {
             res.redirect(`trips/${trip.id}`)
@@ -58,8 +52,6 @@ router.get('/:id/edit', checkLogin, (req, res) => {
             const sDate = date(trip.tripStartDate)
             const eDate = date(trip.tripEndDate)
             const endDate = trip.tripEndDate + 1
-            console.log('endDate', endDate)
-            // console.log('found this trip', trip)
             res.render('trips/edit', {trip, title: `Edit: ${trip.tripName}`, sDate, eDate})
         })
         .catch(err => console.log.error)
@@ -75,7 +67,6 @@ router.patch('/:id', checkLogin, (req, res) => {
             }
         })
         .then(data => {
-            // console.log('what is updated', data)
             res.redirect(`/trips`)
         })
         .catch(err => console.log.error)
@@ -91,7 +82,6 @@ router.delete('/:id', checkLogin, (req, res) => {
             }
         })
         .then(data => {
-            // console.log('returned from deleteOne', data)
             res.redirect('/trips')
         })
         .catch(err => console.log.error)
@@ -102,7 +92,6 @@ router.get('/:id', (req, res) => {
         .populate('owner')
         .populate('comments.author')
         .then(trip => {
-            console.log('found this trip', trip)
             res.render('trips/show', { title: trip.tripName, trip})
         })
         .catch(err => console.log.error)

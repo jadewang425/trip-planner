@@ -1,23 +1,30 @@
 <%- include('../partials/header') %>
 
 <h3>Upcoming Trips</h3>
-<% upcomingTrips.forEach(trip => { %>
-    <article>
-        <h4><%= trip.tripName %></h4>
-        <div><%= trip.tripStartDate.toLocaleDateString() %> - <%= trip.tripEndDate.toLocaleDateString() %></div>
-        <div class="mb-2"><%= trip.tripDesc %></div>
-        <a href="/trips/<%= trip.id %>" class="btn btn-outline-secondary">See Details</a>
-    </article>
-<% })%>
-
+<% if (upcomingTrips.length) { %>
+    <% upcomingTrips.forEach(trip => { %>
+        <article>
+            <h4><%= trip.tripName %></h4>
+            <div><%= trip.tripStartDate.toLocaleDateString() %> - <%= trip.tripEndDate.toLocaleDateString() %></div>
+            <div class="mb-2"><%= trip.tripDesc %></div>
+            <a href="/trips/<%= trip.id %>" class="btn btn-outline-secondary">See Details</a>
+        </article>
+    <% })%>
+<% } else { %>
+    <div class="secondary-text mb-3">No Upcoming Trips</div>
+<% } %>
+    
 <h3>Past Trips</h3>
-<% pastTrips.forEach(trip => { %>
-    <article>
-        <h4><%= trip.tripName %></h4>
-        <div><%= trip.tripStartDate.toLocaleDateString() %> - <%= trip.tripEndDate.toLocaleDateString() %></div>
-        <div class="mb-2"><%= trip.tripDesc %></div>
-        <a href="/trips/<%= trip.id %>" class="btn btn-outline-secondary">See Details</a>
-    </article>
-<% })%>
-
+<% if (pastTrips.length) { %>
+    <% pastTrips.forEach(trip => { %>
+        <article>
+            <h4><%= trip.tripName %></h4>
+            <div><%= trip.tripStartDate.toLocaleDateString() %> - <%= trip.tripEndDate.toLocaleDateString() %></div>
+            <div class="mb-2"><%= trip.tripDesc %></div>
+            <a href="/trips/<%= trip.id %>" class="btn btn-outline-secondary">See Details</a>
+        </article>
+    <% })%>
+<% } else { %>
+    <div class="secondary-text mb-3">No Past Trips</div>
+<% } %>
 <%- include('../partials/footer') %>
