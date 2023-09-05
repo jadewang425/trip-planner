@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 <section>
-    <div class="date"><%= trip.tripStartDate.toLocaleDateString() %> - <%= trip.tripEndDate.toLocaleDateString() %></div>
+    <div class="date"><%= trip.tripStartDate.getUTCMonth() + 1 %>/<%= trip.tripStartDate.getUTCDate()%>/<%= trip.tripStartDate.getUTCFullYear() %> - <%= trip.tripEndDate.getUTCMonth() + 1 %>/<%= trip.tripEndDate.getUTCDate() %>/<%= trip.tripEndDate.getUTCFullYear() %></div>
     <div class="trip-desc"><%= trip.tripDesc %></div>
     <div class="mb-3">
         <% if(trip.owner) {%>
