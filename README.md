@@ -3,30 +3,36 @@
 A trip planning application to stay organize and ensuring all the preparations are completed for each trip.
 
 ### User Stories
-AAU,
-- I want to view all my trips on the Homepage
-- I want to have an "add trip" page, and be able to enter
+AAU, I want to
+- View all the trips I created
+- Have an "add trip" page, and be able to enter
     - Trip Name
     - Trip Dates
     - Trip description
-- I want to see each trip's details on it's own/show page
-- I want to be able to add tasks on the trip details page
-    - like booking flights, Airbnb, buy grocery, etc.
-- I want to be able to add members of the trip on the details page
-- I want to be able to make comments on the details page
-- I want to only be able to make any updates when logged in
+- See each trip's details on the show page
+- Have the ability to add tasks on the trip details page
+    - Booking flights, Airbnb, buy grocery, etc.
+- Add attendants of the trip on the details page
+- Let other people make comments on the details page
+- Only be able to make any updates when logged in
 
 Bonue:
-- Assign tasks to members in trip details
 - Sort trips by start date on the homepage
+- Assign tasks to members in trip details
 - users can like comments if it's a good idea
 
 Steps:
-- Create model(s)
-- Create views/ejs
-- Create Controllers/Routes
-- When above are completed
-    - Implement OAuth
+- Setup connection and files
+    - models, controllers/routers, ejs
+    - basic CSS
+- Setup trips/index
+- Setup trips/show
+- Setup trip/new
+- Add edit and delete trip features
+- Implement OAuth
+- Add comments section & styling
+- Add tasks section with add and delete buttons
+- Add attendants section & styling
 
 ###### HTML
 ```html

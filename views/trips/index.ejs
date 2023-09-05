@@ -3,11 +3,11 @@
 <h3>Upcoming Trips</h3>
 <% if (upcomingTrips.length) { %>
     <% upcomingTrips.forEach(trip => { %>
-        <article>
+        <article class="shadow">
             <h4><%= trip.tripName %></h4>
             <div><%= trip.tripStartDate.getUTCMonth() + 1 %>/<%= trip.tripStartDate.getUTCDate()%>/<%= trip.tripStartDate.getUTCFullYear() %> - <%= trip.tripEndDate.getUTCMonth() + 1 %>/<%= trip.tripEndDate.getUTCDate() %>/<%= trip.tripEndDate.getUTCFullYear() %></div>
             <div class="mb-2"><%= trip.tripDesc %></div>
-            <a href="/trips/<%= trip.id %>" class="btn btn-outline-secondary">See Details</a>
+            <a href="/trips/<%= trip.id %>" class="btn btn-outline-secondary btn-sm">See Details</a>
         </article>
     <% })%>
 <% } else { %>
@@ -17,11 +17,11 @@
 <h3>Past Trips</h3>
 <% if (pastTrips.length) { %>
     <% pastTrips.forEach(trip => { %>
-        <article>
+        <article class="shadow">
             <h4><%= trip.tripName %></h4>
             <div><%= trip.tripStartDate.getUTCMonth() + 1 %>/<%= trip.tripStartDate.getUTCDate()%>/<%= trip.tripStartDate.getUTCFullYear() %> - <%= trip.tripEndDate.getUTCMonth() + 1 %>/<%= trip.tripEndDate.getUTCDate() %>/<%= trip.tripEndDate.getUTCFullYear() %></div>
             <div class="mb-2"><%= trip.tripDesc %></div>
-            <a href="/trips/<%= trip.id %>" class="btn btn-outline-secondary">See Details</a>
+            <a href="/trips/<%= trip.id %>" class="btn btn-outline-secondary btn-sm">See Details</a>
         </article>
     <% })%>
 <% } else { %>

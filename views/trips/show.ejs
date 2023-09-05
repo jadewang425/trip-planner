@@ -34,13 +34,13 @@
                 <div class="p-1 secondary-text">No Attendants Added Yet</div>
             <% } %>
             <% if (trip.owner?._id.equals(user?._id)) { %>
-                <div class="w-100 px-2">
+                <div class="w-100 px-3">
                     <form action="/attendants/<%= trip._id%>" method="POST" class="text-start">
                         <label>Name: </label>
                         <input type="text" name="attName" class="mb-1 w-100 text-start"><br>
                         <label>Email: </label>
                         <input type="email" name="attEmail" class="mb-2 w-100 text-start"><br>
-                        <div><input type="submit" value="Add" class="mb-3 text-center"></div>
+                        <div><input type="submit" value="Add" class="mb-3 text-center btn btn-outline-dark btn-sm"></div>
                     </form>
                 </div>
             <% } %>
@@ -77,7 +77,7 @@
                                     <input type="text" name="item" class="w-100 text-start">
                             </td>
                             <td class="col p-1">
-                                    <input type="submit" value="Add">
+                                    <input class="btn btn-outline-dark btn-sm" type="submit" value="Add">
                                 </form>
                             </td>
                         </tr>
@@ -102,17 +102,17 @@
 <section>
     <h5>Comments</h5>
     <% if (user) { %>
-        <form action="/comments/<%= trip._id%>" method="POST" class="col-md-6 offset-md-3">
-            <label class="form-label">Add A Comment: </label>
+        <form action="/comments/<%= trip._id%>" method="POST" class="col-md-6 offset-md-3 mb-3">
+            <label class="form-label align-top">Add A Comment: </label>
             <textarea type="text" name="comment" class="text-start"></textarea>
-            <input type="submit" class="btn btn-outline-info btn-sm" value="Add">
+            <input type="submit" class="btn btn-outline-info btn-sm align-top" value="Add">
         </form>
     <% }%>
     <!-- comments section -->
     <% if (trip.comments.length) { %>
-        <div class="comments-layout">
+        <div>
             <% trip.comments.forEach(comm => { %>
-                <div class="shadow mb-3">
+                <div class="comments shadow mb-3">
                     <div class="p-3"><img class="user-avatar" src="<%= comm.author.avatar %>"></div>
                     <div class="text-start p-3 user">
                         <strong><%= comm.author.name %></strong>

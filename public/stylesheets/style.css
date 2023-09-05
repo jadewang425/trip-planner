@@ -39,6 +39,11 @@ h1, #homepage {
     margin: 20px;
 }
 
+h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+}
+
 footer {
     font-size: 13px;
     padding-top: 15px;
@@ -47,7 +52,10 @@ footer {
 }
 
 article {
-    margin: 20px;
+    padding: 10px;
+    margin: 10px 20px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
 }
 
 .navbar {
@@ -111,20 +119,15 @@ article {
     gap: 10px;
 }
 
-/* comment section starts */
-.comments-layout {
+.comments {
     padding: 5px;
     margin: 10px 20px;
-}
-
-.shadow {
     display: flex;
     flex-direction: row;
     align-items: center;
     border: 1px solid lightgray;
     border-radius: 10px;
 }
-
 
 .user-avatar {
     border-radius: 50%;
@@ -139,9 +142,7 @@ article {
     justify-content: flex-end;
     width: 3em;
 }
-/* comment section ends */
 
-/* form styling starts  */
 #trip-new-form, #trip-edit-form {
     display: flex;
     flex-direction: column;
@@ -155,5 +156,3 @@ article {
 .form-text {
     width: 50vh;
 }
-
-/* form styling ends  */
