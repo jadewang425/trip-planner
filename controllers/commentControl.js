@@ -28,13 +28,13 @@ router.post('/:tripId', checkLogin, (req, res) => {
         .catch(error => console.error)
 })
 // edit
-router.get('/:id/edit', checkLogin, (req, res) => {
-    res.send('comment edit form')
-})
+// router.get('/:id/edit', checkLogin, (req, res) => {
+//     res.send('comment edit form')
+// })
 // update
-router.patch('/:id', checkLogin, (req, res) => {
-    res.send('edit comment route')
-})
+// router.patch('/:id', checkLogin, (req, res) => {
+//     res.send('edit comment route')
+// })
 // delete
 router.delete('/:tripId/:commentId', checkLogin, (req, res) => {
     // res.send('delete comment route')

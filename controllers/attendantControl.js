@@ -24,13 +24,13 @@ router.post('/:tripId', checkLogin, (req, res) => {
         .catch(error => console.error)
 })
 // edit
-router.get('/:id/edit', checkLogin, (req, res) => {
-    res.send('attendant edit form')
-})
+// router.get('/:id/edit', checkLogin, (req, res) => {
+//     res.send('attendant edit form')
+// })
 // update
-router.patch('/:id', checkLogin, (req, res) => {
-    res.send('edit attendant route')
-})
+// router.patch('/:id', checkLogin, (req, res) => {
+//     res.send('edit attendant route')
+// })
 // delete
 router.delete('/:tripId/:attendantId', checkLogin, (req, res) => {
     // console.log('delete attendant route')

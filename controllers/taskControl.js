@@ -24,13 +24,13 @@ router.post('/:tripId', checkLogin, (req, res) => {
         .catch(error => console.error)
 })
 // edit
-router.get('/:id/edit', checkLogin, (req, res) => {
-    res.send('task edit form')
-})
+// router.get('/:id/edit', checkLogin, (req, res) => {
+//     res.send('task edit form')
+// })
 // update
-router.patch('/:id', checkLogin, (req, res) => {
-    res.send('edit task route')
-})
+// router.patch('/:id', checkLogin, (req, res) => {
+//     res.send('edit task route')
+// })
 // delete
 router.delete('/:tripId/:taskId', checkLogin, (req, res) => {
     // console.log('delete task route')

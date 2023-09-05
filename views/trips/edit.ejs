@@ -17,9 +17,9 @@
     <div class="mb-3">
         <textarea class="form-control form-text" type="text" name="tripDesc" required><%= trip.tripDesc %></textarea>
     </div>
-    <div>
-        <input type="submit" value="Edit Trip">
-        <a href="/trips/<%= trip._id %>">Cancel Edit</a>
+    <div class="edit-btns">
+        <input type="submit" value="Confirm" class="btn btn-outline-success btn-sm">
+        <a href="/trips/<%= trip._id %>" class="btn btn-outline-dark btn-sm">Cancel</a>
     </div>
     <!-- </fieldset> -->
 </form>

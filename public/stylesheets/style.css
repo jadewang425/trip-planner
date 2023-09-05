@@ -112,7 +112,7 @@ article {
     color: lightgray;
 }
 
-.trip-update-btns {
+.trip-update-btns, .edit-btns {
     display: flex;
     justify-content: center;
     padding: 10px;
