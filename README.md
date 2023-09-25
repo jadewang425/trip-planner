@@ -16,23 +16,24 @@ AAU, I want to
 - Let other people make comments on the details page
 - Only be able to make any updates when logged in
 
-Bonue:
-- Sort trips by start date on the homepage
-- Assign tasks to members in trip details
-- users can like comments if it's a good idea
-
-Steps:
+#### Completed
 - Setup connection and files
     - models, controllers/routers, ejs
     - basic CSS
 - Setup trips/index
 - Setup trips/show
 - Setup trip/new
+- Add upcoming & past section with sorting by dates
 - Add edit and delete trip features
 - Implement OAuth
 - Add comments section & styling
 - Add tasks section with add and delete buttons
 - Add attendants section & styling
+
+#### Ice Box
+- Assign Tasks to attendants
+- Send email notifications when attendent is added to the trip
+- Like feature in comments section
 
 ##### HTML
 ```html
@@ -54,13 +55,13 @@ font-family: 'Merriweather', serif;
 - JavaScript
 - CSS
 
-## Wireframe
+## App
 #### All Trips/index
-![layout wireframe](https://i.imgur.com/QVtSvMA.png)
+![layout wireframe](https://i.imgur.com/TFh2Ahc.png)
 #### Add Trip page/new
-![layout wireframe](https://i.imgur.com/zRzXJx3.png)
+![layout wireframe](https://i.imgur.com/zfAU61f.png)
 #### Trip Details/show
-![layout wireframe](https://i.imgur.com/W0sE0HF.png)
+![layout wireframe](https://i.imgur.com/xpTcrq5.png)
 #### ERD
 ![layout wireframe](https://i.imgur.com/rfPfWaf.png)
 
